@@ -16,8 +16,7 @@ cd $dataDir
 # to run just a subset of subjects easier.  Otherwise we might end up with
 # a bunch of feat+ directories.
 
-# Running just the first subject
-# Change the numbers inside the {} to be the subjects to be processed.
+# Running from sub-02 onward
 for id in {01..01} ; do
     subj="sub-$id"
     echo "===> Starting processing of $subj"
@@ -33,6 +32,7 @@ for id in {01..01} ; do
         # Copy the design files into the subject directory, and then
         # change “sub-01” to the current subject number
         cp $scriptDir/design_run1.fsf .
+        cp $scriptDir/design_run2.fsf .
 
         # Note that we are using the | character to delimit the patterns
         # instead of the usual / character because there are / characters
@@ -40,10 +40,14 @@ for id in {01..01} ; do
         # use it again; and again.
         sed -i "s|DS102DATADIR|${dataDir}|g ; s|sub-01|${subj}|g" \
             design_run1.fsf
+        sed -i "s|DS102DATADIR|${dataDir}|g ; s|sub-01|${subj}|g" \
+            design_run2.fsf
 
         # Now everything is set up to run feat
         echo "===> Starting feat for run 1"
         feat design_run1.fsf
+        echo "===> Starting feat for run 2"
+        feat design_run2.fsf
         echo
 
     cd $dataDir
