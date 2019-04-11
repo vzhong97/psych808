@@ -1,13 +1,9 @@
 #!/bin/bash
 
 # Set the directory that contains the data folders
-# We use the $USER variable so that this script can be run
-#     unmodified by any user
 
-# dataDir=/nfs/test/ds102
-# scriptDir=/nfs/test/scripts
-dataDir=/nfs/turbo/nii-open/psych808-w19/bennet/ds102
-scriptDir=/nfs/turbo/nii-open/psych808-w19/bennet/scripts
+dataDir=$HMOE/Projects/ds102
+scriptDir=$HOME/Projects/scripts
 
 # Change to the data directory
 cd $dataDir
