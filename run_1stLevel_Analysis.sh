@@ -25,7 +25,7 @@ for id in {01..01} ; do
 
         # If the brain mask doesn’t exist, create it
         if [ ! -f anat/${subj}_T1w_brain.nii.gz ]; then
-            bet anat/${subj}_T1w.nii.gz \
+            echo bet anat/${subj}_T1w.nii.gz \
                 anat/${subj}_T1w_brain.nii.gz # Note: changed from bet2
         fi
     
@@ -45,9 +45,9 @@ for id in {01..01} ; do
 
         # Now everything is set up to run feat
         echo "===> Starting feat for run 1"
-        feat design_run1.fsf
+        echo feat design_run1.fsf
         echo "===> Starting feat for run 2"
-        feat design_run2.fsf
+        echo feat design_run2.fsf
         echo
 
     cd $dataDir
